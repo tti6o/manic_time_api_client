@@ -55,7 +55,7 @@ def WriteDayMarkDown():
     payload = {}
     headers = {
         'Accept': 'application/vnd.manictime.v2+json',
-        'Authorization': 'Bearer {}'.format(cfg['manic_time']['token'])
+        'Authorization': 'Bearer {}'.format(token)
     }
     response = requests.request("GET", url, headers=headers, data=payload)
     datas = response.json()
