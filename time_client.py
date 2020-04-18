@@ -10,6 +10,7 @@ from configparser import ConfigParser
 class WeekMarkDown:
     def __init__(self):
         self.type_time = {}
+        self.count = 0;
 
     def check_tags(self, tmp_str):
         if tmp_str.find('，') > 0:
@@ -18,6 +19,10 @@ class WeekMarkDown:
 
     def add_tags(self,tags_str,duration):
         tag_list = tags_str.split(',')
+        if tag_list[-1] .find(':billable') > 0:
+            self.count += 1;
+            print("tag_list:", tag_list)
+        print(self.count)
         first_type,second_type = tag_list[0:2]
         self.add_type_time(tags_str.strip(),duration)
         self.add_type_time(first_type.strip(),duration)
